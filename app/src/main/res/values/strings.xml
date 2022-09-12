@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">BancoUTN</string>
+    <string name="titulo">Banco UTN Santa Fe</string>
+    <string name="descripcion">Para constituir tu plazo fijo necesitamos que nos proveas algunos datos</string>
+    <string name="textoBotonSimular">simular</string>
+    <string name="textoBotonConstituir">constituir</string>
+    <string name="textoNombre">Nombre</string>
+    <string name="textoApellido">Apellido</string>
+    <string name="descripcionLogo">Foto de logo UTN</string>
+    <string name="textoMoneda">Moneda</string>
     <string-array name="tipo_moneda">
         <item>PESOS</item>
         <item>DOLAR</item>
