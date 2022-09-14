@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
     android:orientation="vertical"
     tools:context=".Simular_Plazo_Fijo">
 
@@ -120,6 +121,7 @@
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:max="365"
         android:progress="1" />
 
@@ -134,11 +136,24 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textoSimulador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/simulador_de_plazo_fijo_en_pesos" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textoSimulador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/simulador_de_plazo_fijo_en_pesos" />
+
+            <TextView
+                android:id="@+id/monedaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/simulaPlazo"
