@@ -11,7 +11,7 @@
     <string name="tasa_nominal_anual">Tasa Nominal Anual</string>
     <string name="tasa_efectiva_anual">Tasa Efectiva Anual</string>
     <string name="capital_a_invertir">Capital a Invertir ($)</string>
-    <string name="simulador_de_plazo_fijo_en_pesos">Simulador de Plazo Fijo en</string>
+    <string name="simulador_de_plazo_fijo_en_pesos">Simulador de Plazo Fijo en: </string>
     <string name="confirmar">Confirmar</string>
     <string-array name="tipo_moneda">
         <item>PESOS</item>

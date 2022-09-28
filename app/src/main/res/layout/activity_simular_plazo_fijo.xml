@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="15dp"
     android:orientation="vertical"
-    tools:context=".Simular_Plazo_Fijo">
+    tools:context=".SimularPlazoFijo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,9 +56,10 @@
             android:layout_weight="1"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
             android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:inputType="numberDecimal"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -84,7 +85,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:minHeight="48dp"
             tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
@@ -112,18 +113,20 @@
             android:layout_weight="1"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:minHeight="48dp"
             tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/seekDias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:max="365"
+        android:max="12"
         android:progress="1" />
+
+
 
     <TextView
         android:id="@+id/cantidadDias"
@@ -155,30 +158,95 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/simulaPlazo"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plazo: "
+                />
+            <TextView
+                android:id="@+id/simulaPlazo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/simulaCapital"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/simulaIntereses"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/simulaTotal"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texto2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capital: "
+                />
+            <TextView
+                android:id="@+id/simulaCapital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/simulaTotalAnual"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texto3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intereses ganados: "
+                />
+            <TextView
+                android:id="@+id/simulaIntereses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texto4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto total: "
+                />
+            <TextView
+                android:id="@+id/simulaTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texto5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto total anual: "
+                />
+            <TextView
+                android:id="@+id/simulaTotalAnual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -188,7 +256,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/botonConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
