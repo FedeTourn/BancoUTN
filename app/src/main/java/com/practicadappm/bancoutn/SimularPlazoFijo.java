@@ -1,5 +1,7 @@
 package com.practicadappm.bancoutn;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,7 +12,6 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.practicadappm.bancoutn.databinding.ActivityMainBinding;
 import com.practicadappm.bancoutn.databinding.ActivitySimularPlazoFijoBinding;
 
 public class SimularPlazoFijo extends AppCompatActivity {
@@ -21,9 +22,10 @@ public class SimularPlazoFijo extends AppCompatActivity {
     private SeekBar meses;
     private String moneda;
     private ActivitySimularPlazoFijoBinding binding;
-    private Button confirmar;
+    private Button botonConfirmar;
     private PlazoFijo plazoFijo;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
@@ -45,7 +47,7 @@ public class SimularPlazoFijo extends AppCompatActivity {
         monedaTextView = binding.monedaTextView;
         cantDias = binding.cantidadDias;
         meses = binding.seekDias;
-        confirmar = binding.botonConfirmar;
+        botonConfirmar = binding.botonConfirmar;
 
 
         monedaTextView.setText(moneda);
@@ -54,6 +56,9 @@ public class SimularPlazoFijo extends AppCompatActivity {
         tasaEfectiva.addTextChangedListener(textWatcher);
         meses.setOnSeekBarChangeListener(listenerCambio);
         plazoFijo = new PlazoFijo();
+
+        botonConfirmar.setOnClickListener(new ListenerConfirmar());
+
     }
 
 
@@ -82,19 +87,29 @@ public class SimularPlazoFijo extends AppCompatActivity {
             simulaPlazo.setText(plazoFijo.getDias().toString());
             simulaTotal.setText(plazoFijo.getMontoTotal().toString());
             simulaTotalAnual.setText(plazoFijo.getMontoTotalAnual().toString());
-            confirmar.setEnabled(true);
+            botonConfirmar.setEnabled(true);
         } else {
             simulaCapital.setText("");
             simulaIntereses.setText("");
             simulaPlazo.setText("");
             simulaTotal.setText("");
             simulaTotalAnual.setText("");
-            confirmar.setEnabled(false);
+            botonConfirmar.setEnabled(false);
         }
     }
 
 
+    public class ListenerConfirmar implements View.OnClickListener{
 
+        @Override
+        public void onClick(View v) {
+            Intent intentConfirmar = new Intent();
+            intentConfirmar.putExtra("capital",capitalFloat);
+            intentConfirmar.putExtra("dias",plazoFijo.getDias());
+            setResult(Activity.RESULT_OK,intentConfirmar);
+            finish();
+        }
+    }
 
     //Listeners
     private TextWatcher textWatcher = new TextWatcher() {
