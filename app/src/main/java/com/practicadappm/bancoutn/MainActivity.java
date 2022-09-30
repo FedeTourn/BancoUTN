@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,29 +66,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            Bundle argumentos = new Bundle();
+            argumentos.putString("titulo", "Felicidades "+nombrePersona.getText().toString()+" "+apellidoPersona.getText().toString()+"!");
+            argumentos.putString("mensaje", "Tu plazo fijo de " + capital.toString() + " " + moneda.getSelectedItem().toString() + " por " + dias.toString() + " dias ha sido constituido!");
             //Crea el objeto AlertDialog
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            DialogoExito dialogo = new DialogoExito();
 
-            // Setea el titulo del mensaje
-            builder.setTitle("Felicidades "+nombrePersona.getText().toString()+" "+apellidoPersona.getText().toString()+"!");
+            dialogo.setArguments(argumentos);
 
-            // Setea el mensaje a mostrar
-            builder.setMessage("Tu plazo fijo de " + capital.toString() + " " + moneda.getSelectedItem().toString() + " por " + dias.toString() + " dias ha sido constituido!");
-
-            // Set Cancelable falso para que no se deje de mostrar cuando el usuario hace click afuera del Dialog Box
-            builder.setCancelable(false);
-
-            // Setea el boton con joya
-            builder.setPositiveButton("Joya", (DialogInterface.OnClickListener) (dialog, which) -> {
-                // Cuando el usuario hace click en piola la app termina
-                finish();
-            });
-
-            // Crear el alert Dialog
-            AlertDialog alertDialog = builder.create();
-            // Motrar el Alert Dialog
-            alertDialog.show();
-
+            dialogo.show(getSupportFragmentManager(), null);
         }
     }
 
