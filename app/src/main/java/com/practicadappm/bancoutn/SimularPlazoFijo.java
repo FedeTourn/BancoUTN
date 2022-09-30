@@ -51,6 +51,7 @@ public class SimularPlazoFijo extends AppCompatActivity {
 
 
         monedaTextView.setText(moneda);
+        cantDias.setText("30 dias");
         capital.addTextChangedListener(textWatcher);
         tasaNominal.addTextChangedListener(textWatcher);
         tasaEfectiva.addTextChangedListener(textWatcher);
