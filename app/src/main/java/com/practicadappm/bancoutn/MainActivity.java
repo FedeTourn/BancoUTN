@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         moneda = binding.moneda;
 
         botonConstituir.setEnabled(false);
+        botonSimular.setEnabled(false);
+
+        nombrePersona.addTextChangedListener(textWatcher);
+        apellidoPersona.addTextChangedListener(textWatcher);
 
         botonSimular.setOnClickListener(new ListenerSimular());
         botonConstituir.setOnClickListener(new ListenerConstituir());
@@ -66,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle("Felicidades "+nombrePersona.getText().toString()+" "+apellidoPersona.getText().toString()+"!");
 
             // Setea el mensaje a mostrar
-            builder.setMessage("Tu plazo fijo de " + capital.toString() + " " + moneda.getSelectedItem().toString() + " por " + dias.toString() + "dias ha sido constituido!");
+            builder.setMessage("Tu plazo fijo de " + capital.toString() + " " + moneda.getSelectedItem().toString() + " por " + dias.toString() + " dias ha sido constituido!");
 
             // Set Cancelable falso para que no se deje de mostrar cuando el usuario hace click afuera del Dialog Box
             builder.setCancelable(false);
@@ -105,5 +111,25 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    private TextWatcher textWatcher = new TextWatcher() {
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        public void afterTextChanged(Editable s) {
+            if(nombrePersona.getText().toString().trim().length() > 0 && apellidoPersona.getText().toString().trim().length() > 0)
+                botonSimular.setEnabled(true);
+            else
+                botonSimular.setEnabled(false);
+        }
+    };
+
 
 }
