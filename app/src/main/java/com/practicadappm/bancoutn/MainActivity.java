@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             // Setea el boton con joya
             builder.setPositiveButton("Joya", (DialogInterface.OnClickListener) (dialog, which) -> {
                 // Cuando el usuario hace click en piola la app termina
-
+                finish();
             });
 
             // Crear el alert Dialog
